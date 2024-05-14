@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.headOfGame {
+  width: 900px;
+  padding: 1rem;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px auto;
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+.memoryGame {
+  width: 900px;
+  padding: 1rem;
+  margin: 12px auto;
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 16px;
+}
+.memoryGame .block {
+  position: relative;
+  width: calc((100% - 64px) / 5);
+  height: 150px;
+
+  cursor: pointer;
+  transform-style: preserve-3d;
+
+  transition: 0.5s;
+}
+
+.memoryGame .block .front {
+  line-height: 150px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+.memoryGame .block .front::after {
+  content: "!";
+  font-size: 80px;
+  font-weight: bold;
+}
+.memoryGame .block .back {
+  transform: rotateY(180deg);
+}
+.memoryGame .block .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid black;
+  backface-visibility: hidden;
+}
+.memoryGame .block img {
+  width: 100%;
+  height: 100%;
+}
+.memoryGame .block.active,
+.memoryGame .block.flibed {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+.popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.575);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  z-index: 12;
+}
+.popUp p {
+  padding: 16px 32px;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.popUp p:hover {
+  background-color: rgb(213, 213, 213);
+}
